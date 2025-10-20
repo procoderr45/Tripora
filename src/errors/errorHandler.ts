@@ -9,7 +9,7 @@ export default function (err: Error, req: Request, res: Response, next: NextFunc
         });
     }
 
-    res.json({
+    res.status(500).json({
         status: "fail",
         message: "Internal server error",
     });
