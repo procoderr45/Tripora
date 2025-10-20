@@ -9,6 +9,8 @@ export default function (err: Error, req: Request, res: Response, next: NextFunc
         });
     }
 
+    console.log(err);
+
     res.status(500).json({
         status: "fail",
         message: "Internal server error",
