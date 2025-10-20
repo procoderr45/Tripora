@@ -7,6 +7,7 @@ export type UserLocation = {
 };
 
 export type User = {
+    _id: string;
     email: string;
     name: string;
     password: string;

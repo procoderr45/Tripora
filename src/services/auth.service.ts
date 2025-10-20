@@ -23,6 +23,22 @@ const registerUserService = async (userData: RegisterUserType): Promise<DbUser> 
     return newUser;
 };
 
+const loginUserService = async (email: string, password: string): Promise<User> => {
+    const user: User | null = await userRepository.findUserByEmail(email);
+
+    if (!user) {
+        throw new AppError("Invalid credentials", 403);
+    }
+
+    const isPasswordMatched = await passwordUtils.comparePassword(password, user.password);
+    if (!isPasswordMatched) {
+        throw new AppError("Invalid credentials", 403);
+    }
+
+    return user;
+};
+
 export default {
     registerUserService,
+    loginUserService
 };
