@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import getEnvVariable from "./env";
+import getEnvVariable from "./env.js";
 
 async function connectToDb() {
     const MONGO_URI = getEnvVariable("MONGO_URI");
