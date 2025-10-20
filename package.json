@@ -2,10 +2,12 @@
     "name": "tripora",
     "version": "1.0.0",
     "description": "AI-powered travel companion",
-    "main": "index.js",
+    "main": "./dist/server.js",
     "type": "module",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "init": "tsc",
+        "dev": "nodemon ./dist/server.ts",
+        "start": "node ./dist/server.ts"
     },
     "repository": {
         "type": "git",
