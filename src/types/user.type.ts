@@ -19,4 +19,8 @@ export type User = {
     hobbies?: string[];
 };
 
+export type LoginUserType = Pick<User, "email" | "password">;
+
+export type RegisterUserType = Pick<User, "name"> & LoginUserType;
+
 export type DbUser = User & Document;
