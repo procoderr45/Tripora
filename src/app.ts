@@ -2,15 +2,15 @@ import dotenv from "dotenv";
 dotenv.config();
 
 import express, { Express } from "express";
+import authRouter from "./routes/auth.route.js";
+import errorHandler from "./errors/errorHandler.js";
 
 const app: Express = express();
 
 app.use(express.json());
 
-app.get("/", (req, res) => {
-    res.send({
-        Hell0: "omo",
-    });
-});
+app.use("/auth", authRouter);
+
+app.use(errorHandler);
 
 export default app;
