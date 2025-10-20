@@ -5,7 +5,7 @@ function getEnvVariable(key: string) {
         throw new Error("Enviornment variable missing - " + key);
     }
 
-    return key;
+    return val;
 }
 
 export default getEnvVariable;
