@@ -28,12 +28,12 @@ const loginUser = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const body = req.body;
         if (!body) {
-            throwAppError("Please provide all required data");
+            throwAppError("Please provide all required data", 400);
         }
         const { email, password } = req.body;
 
         if (!email || !password) {
-            throwAppError("Please provide all required data");
+            throwAppError("Please provide all required data",400);
         }
 
         const userData: User = await authService.loginUserService(email, password);
