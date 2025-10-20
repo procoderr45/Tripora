@@ -1,7 +1,7 @@
 import { AppError } from "../errors/AppError.js";
 import userRepository from "../repositories/user.repository.js";
 import { DbUser, RegisterUserType, User } from "../types/user.type.js";
-import passwordUtils from "../utils/user/passwordUtils.js";
+import passwordUtils from "../utils/bcrypt/passwordUtils.js";
 
 const registerUserService = async (userData: RegisterUserType): Promise<DbUser> => {
     if (!userData) {
