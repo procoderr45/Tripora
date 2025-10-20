@@ -26,7 +26,7 @@ Just tell it *how* you want to spend your time (e.g., “I want a relaxing 3-day
 | **Language** | TypeScript |
 | **Backend** | Node.js + Express |
 | **AI Engine** | OpenAI / Gemini API |
-| **Database** | MongoDB / PostgreSQL |
+| **Database** | MongoDB |
 | **APIs Used** | Google Maps, OpenWeather |
 | **Deployment** | AWS Lambda / Vercel / Render |
 
