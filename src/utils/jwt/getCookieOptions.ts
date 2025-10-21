@@ -5,7 +5,6 @@ export default function (duration: number): CookieOptions {
         maxAge: duration,
         secure: true,
         httpOnly: true,
-        sameSite: "strict",
         path: "/",
     };
 }
