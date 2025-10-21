@@ -15,6 +15,13 @@ const createPlanService = async (userId: mongoose.Types.ObjectId, planData: Crea
     return newPlan;
 };
 
+const getPlanService = async (planId: mongoose.Types.ObjectId) => {
+    const plan = await planRepository.findPlanById(planId);
+
+    return plan;
+};
+
 export default {
     createPlanService,
+    getPlanService
 };

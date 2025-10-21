@@ -10,7 +10,7 @@ const createPlan = async (userId: mongoose.Types.ObjectId, planData: CreatePlanT
     return savedPlan;
 };
 
-const findPlanById = async (planId: string) => {
+const findPlanById = async (planId: mongoose.Types.ObjectId) => {
     const plan = await PlanModel.findById(planId).lean();
 
     return plan;
