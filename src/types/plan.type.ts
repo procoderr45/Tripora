@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 export type Plan = {
-    userId: mongoose.Schema.Types.ObjectId;
+    userId: mongoose.Types.ObjectId;
     fromLocation: string;
     date: Date;
     preferredPlaces: string[];
@@ -11,3 +11,5 @@ export type Plan = {
     description: string;
     itineraryKey: string;
 };
+
+export type CreatePlanType = Omit<Plan, "itineraryKey">;
