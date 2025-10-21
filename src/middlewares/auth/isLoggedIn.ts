@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import throwAppError from "../../errors/throwAppError.js";
 import decodeJwtToken from "../../utils/jwt/decodeJwtToken.js";
+import { JwtPayload } from "jsonwebtoken";
 
 export default function (req: Request, res: Response, next: NextFunction) {
     const cookies = req.cookies;
@@ -13,10 +14,9 @@ export default function (req: Request, res: Response, next: NextFunction) {
         throwAppError("Token is missing, please login", 401);
     }
 
-    const userId = decodeJwtToken(token);
+    const { id: userId } = decodeJwtToken(token) as JwtPayload;
 
     req.userId = String(userId);
-    console.log(req.userId);
 
     next();
 }
