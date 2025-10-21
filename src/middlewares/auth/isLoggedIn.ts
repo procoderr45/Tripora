@@ -14,7 +14,9 @@ export default function (req: Request, res: Response, next: NextFunction) {
     }
 
     const userId = decodeJwtToken(token);
-    console.log(userId);
+
+    req.userId = String(userId);
+    console.log(req.userId);
 
     next();
 }
