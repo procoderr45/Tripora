@@ -7,6 +7,7 @@ import errorHandler from "./errors/errorHandler.js";
 import profileRouter from "./routes/profile.route.js";
 import isLoggedIn from "./middlewares/auth/isLoggedIn.js";
 import cookieParser from "cookie-parser";
+import planRouter from "./routes/plan.route.js";
 
 const app: Express = express();
 
@@ -15,6 +16,7 @@ app.use(cookieParser());
 
 app.use("/auth", authRouter);
 app.use("/profile", isLoggedIn, profileRouter);
+app.use("/plan", isLoggedIn, planRouter);
 
 app.use(errorHandler);
 
