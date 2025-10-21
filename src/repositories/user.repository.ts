@@ -19,7 +19,14 @@ const createUser = async (name: string, email: string, password: string): Promis
     return savedUser;
 };
 
+const findUserById = async (id: string): Promise<User | null> => {
+    const user: User | null = await UserModel.findById(id).lean();
+
+    return user;
+};
+
 export default {
     findUserByEmail,
+    findUserById,
     createUser,
 };

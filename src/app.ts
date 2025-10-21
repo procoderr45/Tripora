@@ -4,12 +4,15 @@ dotenv.config();
 import express, { Express } from "express";
 import authRouter from "./routes/auth.route.js";
 import errorHandler from "./errors/errorHandler.js";
+import profileRouter from "./routes/profile.route.js";
+import isLoggedIn from "./middlewares/auth/isLoggedIn.js";
 
 const app: Express = express();
 
 app.use(express.json());
 
 app.use("/auth", authRouter);
+app.use("/profile", isLoggedIn, profileRouter);
 
 app.use(errorHandler);
 
