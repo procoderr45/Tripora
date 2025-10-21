@@ -12,4 +12,27 @@ export type Plan = {
     itineraryKey: string;
 };
 
+type Activity = {
+    title: string;
+    description: string;
+    images: string[];
+};
+
+type Day = {
+    title: string;
+    date: Date;
+    localGuideContact?: string[];
+    imageUrl: string;
+    location: string;
+    tip?: string;
+    activities: Activity[];
+};
+
+export type ItineraryPlanType = {
+    description: string;
+    title: string;
+    daywisePlan: Day[];
+    estimatedBudget: number;
+};
+
 export type CreatePlanType = Omit<Plan, "itineraryKey">;
