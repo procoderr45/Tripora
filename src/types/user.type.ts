@@ -20,6 +20,8 @@ export type User = {
     hobbies?: string[];
 };
 
+export type UpdateUserProfileType = Partial<Omit<User, "id" | "email" | "createdAt" | "password">>;
+
 export type LoginUserType = Pick<User, "email" | "password">;
 
 export type RegisterUserType = Pick<User, "name"> & LoginUserType;
