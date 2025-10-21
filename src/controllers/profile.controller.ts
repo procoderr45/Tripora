@@ -22,6 +22,30 @@ const viewProfile = async (req: Request, res: Response, next: NextFunction) => {
     }
 };
 
+const editProfile = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const userId = req.userId;
+        if (!req.body) {
+            return throwAppError("Please provide data to update", 400);
+        }
+        
+        if (!userId) {
+            return throwAppError("Invalid userId , please login", 403);
+        }
+
+        const updatedProfile = await profileService.editProfileService(userId, req.body);
+
+        res.json({
+            status: "success",
+            message: "Updated profile data successfully",
+            user: updatedProfile,
+        });
+    } catch (err) {
+        next(err);
+    }
+};
+
 export default {
     viewProfile,
+    editProfile,
 };
