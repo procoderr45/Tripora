@@ -1,9 +1,10 @@
 import "express";
+import { User } from "./user.type";
 
 declare global {
     namespace Express {
         export interface Request {
-            userId?: string;
+            user: User;
         }
     }
 }
