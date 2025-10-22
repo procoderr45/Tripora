@@ -18,6 +18,8 @@ type Activity = {
     images: string[];
 };
 
+type TravelModeType = "bus" | "car" | "bicycle" | "bike" | "aeroplan" | "walk" | "train" | "boat" | "rikshaw";
+
 type Day = {
     title: string;
     date: Date;
@@ -26,6 +28,7 @@ type Day = {
     location: string;
     tip?: string;
     activities: Activity[];
+    travelMode: TravelModeType;
 };
 
 export type ItineraryPlanType = {
