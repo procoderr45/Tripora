@@ -5,7 +5,7 @@ import mongoose from "mongoose";
 
 const createPlan = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        const id = req.userId;
+        const id = req.user._id;
         if (!id) {
             return throwAppError("Invalid user id, please login", 403);
         }

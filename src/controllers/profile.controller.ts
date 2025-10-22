@@ -4,7 +4,7 @@ import throwAppError from "../errors/throwAppError.js";
 
 const viewProfile = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        const userId = req.userId;
+        const userId = req.user._id;
 
         if (!userId) {
             return throwAppError("Please login", 403);
@@ -24,11 +24,11 @@ const viewProfile = async (req: Request, res: Response, next: NextFunction) => {
 
 const editProfile = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        const userId = req.userId;
+        const userId = req.user._id;
         if (!req.body) {
             return throwAppError("Please provide data to update", 400);
         }
-        
+
         if (!userId) {
             return throwAppError("Invalid userId , please login", 403);
         }
