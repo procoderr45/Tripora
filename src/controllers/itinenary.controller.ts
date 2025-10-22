@@ -12,10 +12,15 @@ const generateItinenary = async (req: Request, res: Response, next: NextFunction
 
         const itinenary = await itinenaryService.generateItinenaryService(req.user, planId);
 
+        // TODO: recieve updatedPlan instead of itinenary here and send it as response
+        // const updatedPlan = await itinenaryService.generateItinenaryService(req.user, planId);
+
         res.json({
             status: "success",
             message: "Itinenary created successfully",
             itinenary,
+            // TODO: return plan key with value as updatedPlan, instead of itinenary
+            // plan: updatedPlan,
         });
     } catch (err) {
         next(err);
