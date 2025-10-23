@@ -10,8 +10,11 @@ import cookieParser from "cookie-parser";
 import planRouter from "./routes/plan.route.js";
 import itinenaryRouter from "./routes/itinenary.route.js";
 import cors from "cors";
+import limiter from "./utils/rate-limiter/limiter.js";
 
 const app: Express = express();
+
+app.use("/itinenary", limiter);
 
 app.use(
     cors({
@@ -25,7 +28,7 @@ app.use(cookieParser());
 
 app.use("/auth", authRouter);
 app.use("/profile", isLoggedIn, profileRouter);
-app.use("/plan",  planRouter);
+app.use("/plan", planRouter);
 app.use("/itinenary", itinenaryRouter);
 
 app.use(errorHandler);
