@@ -1,4 +1,3 @@
-import throwAppError from "../errors/throwAppError.js";
 import userRepository from "../repositories/user.repository.js";
 import { UpdateUserProfileType } from "../types/user.type.js";
 import { editAllowedFields } from "../utils/constants.js";

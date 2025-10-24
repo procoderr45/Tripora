@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { type DbUser, type UserLocation, type User } from "../types/user.type.js";
+import { type DbUser } from "../types/user.type.js";
 import { defaultUserAvatar } from "../utils/constants.js";
 
 const userSchema = new mongoose.Schema<DbUser>(

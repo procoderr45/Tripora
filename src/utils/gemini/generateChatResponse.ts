@@ -1,6 +1,3 @@
-import { Plan } from "../../types/plan.type.js";
-import { User } from "../../types/user.type.js";
-import generateItinenaryChatInputData from "../itinenary/generateItinenaryChatInputData.js";
 import client from "./client.js";
 
 export const generateChatResponse = async function (message: string) {

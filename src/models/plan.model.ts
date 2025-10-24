@@ -34,7 +34,7 @@ const planSchema = new mongoose.Schema<Plan>(
         },
         itinerary: {
             type: Object,
-            default: {}
+            default: {},
         },
         withWhom: {
             type: String,

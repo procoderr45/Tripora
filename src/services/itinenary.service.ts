@@ -21,7 +21,7 @@ const generateItinenaryService = async (user: User, planId: mongoose.Types.Objec
     // TODO: save the generated itinenaryJsonData to aws and save the itinenaryKey of that plan
     // const updatedPlan = await planRepository.saveItinenaryKey(planId.toString(), "awsItinenaryKey");
 
-    const updatedPlan = await planRepository.savePlanItinerary(planId, itinenary);
+    const updatedPlan = await planRepository.savePlanItinerary(planId.toString(), itinenary);
 
     return itinenaryJsonData;
 
