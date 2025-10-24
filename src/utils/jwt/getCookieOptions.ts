@@ -6,5 +6,6 @@ export default function (duration: number): CookieOptions {
         secure: true,
         httpOnly: true,
         path: "/",
+        sameSite: "strict",
     };
 }
