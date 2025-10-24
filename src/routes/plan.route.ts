@@ -4,5 +4,6 @@ import planController from "../controllers/plan.controller.js";
 const router = express();
 
 router.post("/new", planController.createPlan);
+router.get("/:id", planController.getPlan)
 
 export default router;

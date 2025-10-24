@@ -28,6 +28,24 @@ const createPlan = async (req: Request, res: Response, next: NextFunction) => {
     }
 };
 
+const getPlan = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const id = req.params.id;
+        const planId = new mongoose.Types.ObjectId(id);
+
+        const plan = await planService.getPlanService(planId);
+
+        res.json({
+            message: "Plan found",
+            status: "success",
+            plan,
+        });
+    } catch (err) {
+        next(err);
+    }
+};
+
 export default {
     createPlan,
+    getPlan,
 };

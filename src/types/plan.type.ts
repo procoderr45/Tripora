@@ -10,6 +10,7 @@ export type Plan = {
     withWhom: string;
     description: string;
     itineraryKey: string;
+    itinerary: Object;
 };
 
 type Activity = {

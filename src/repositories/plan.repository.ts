@@ -29,24 +29,24 @@ const savePlanItineraryKey = async (planId: string, itineraryPlanKey: string) =>
     return savedPlanData;
 };
 
-const saveItinenary = async (planId: string, itineraryKey: string) => {
-    const updatedPlan = await PlanModel.findByIdAndUpdate(
+const savePlanItinerary = async (planId: string, itineraryPlan: Object) => {
+    const savedPlanData = await PlanModel.findByIdAndUpdate(
         planId,
-        {
-            itineraryKey,
-        },
+        { itinerary: itineraryPlan },
         {
             returnDocument: "after",
-            runValidator: true,
+            runValidators: true,
         }
     );
 
-    return updatedPlan;
+    return savedPlanData;
 };
+
+
 
 export default {
     createPlan,
-    saveItinenary,
     findPlanById,
     savePlanItineraryKey,
+    savePlanItinerary,
 };

@@ -32,6 +32,10 @@ const planSchema = new mongoose.Schema<Plan>(
             type: Number,
             required: [true, "Please provide your budget to create itinerary"],
         },
+        itinerary: {
+            type: Object,
+            default: {}
+        },
         withWhom: {
             type: String,
             trim: true,
