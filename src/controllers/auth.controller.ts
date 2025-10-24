@@ -33,7 +33,7 @@ const loginUser = async (req: Request, res: Response, next: NextFunction) => {
         const { email, password } = req.body;
 
         if (!email || !password) {
-            throwAppError("Please provide all required data",400);
+            throwAppError("Please provide all required data", 400);
         }
 
         const userData: User = await authService.loginUserService(email, password);
@@ -53,7 +53,21 @@ const loginUser = async (req: Request, res: Response, next: NextFunction) => {
     }
 };
 
+const logoutUser = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const logoutCookieOption = authService.logoutUserService();
+        res.cookie("token", "", logoutCookieOption);
+
+        res.json({
+            message: "Logout successful",
+        });
+    } catch (err) {
+        next(err);
+    }
+};
+
 export default {
     registerUser,
     loginUser,
+    logoutUser,
 };

@@ -38,7 +38,15 @@ const loginUserService = async (email: string, password: string): Promise<User> 
     return user;
 };
 
+const logoutUserService = () => {
+    return {
+        maxAge: 0,
+        expires: new Date(Date.now()),
+    };
+};
+
 export default {
     registerUserService,
-    loginUserService
+    loginUserService,
+    logoutUserService,
 };
