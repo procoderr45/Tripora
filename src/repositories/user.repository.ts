@@ -1,3 +1,4 @@
+import PlanModel from "../models/plan.model.js";
 import UserModel from "../models/user.model.js";
 import { DbUser, UpdateUserProfileType, User } from "../types/user.type.js";
 
@@ -34,9 +35,20 @@ const updateUserProfile = async (userId: string, updateData: UpdateUserProfileTy
     return updatedData;
 };
 
+const findUserPlans = async (userId: string) => {
+    const userPlans = await PlanModel.find({
+        userId,
+    })
+        .select("-itinerary")
+        .lean();
+
+    return userPlans;
+};
+
 export default {
     findUserByEmail,
     findUserById,
     createUser,
+    findUserPlans,
     updateUserProfile,
 };

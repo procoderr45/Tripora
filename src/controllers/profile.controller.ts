@@ -45,7 +45,22 @@ const editProfile = async (req: Request, res: Response, next: NextFunction) => {
     }
 };
 
+const userPlans = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const userId = req.user._id;
+
+        const userPlans = await profileService.userPlansServices(userId);
+
+        res.json({
+            plans: userPlans,
+        });
+    } catch (err) {
+        next(err);
+    }
+};
+
 export default {
     viewProfile,
     editProfile,
+    userPlans,
 };

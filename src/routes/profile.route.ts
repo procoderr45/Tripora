@@ -5,5 +5,6 @@ const router: Router = express.Router();
 
 router.get("/view", profileController.viewProfile);
 router.patch("/edit", profileController.editProfile);
+router.get("/plans", profileController.userPlans);
 
 export default router;

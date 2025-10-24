@@ -23,7 +23,13 @@ const editProfileService = async (userId: string, updateData: UpdateUserProfileT
     return updatedProfile;
 };
 
+const userPlansServices = async (userId: string) => {
+    const userPlans = await userRepository.findUserPlans(userId);
+    return userPlans;
+};
+
 export default {
     viewProfileService,
     editProfileService,
+    userPlansServices,
 };
