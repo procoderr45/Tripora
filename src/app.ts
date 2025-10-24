@@ -14,14 +14,14 @@ import limiter from "./utils/rate-limiter/limiter.js";
 
 const app: Express = express();
 
-app.use("/itinenary", limiter);
-
 app.use(
     cors({
         origin: "http://localhost:5173",
         credentials: true,
     })
 );
+
+app.use("/itinenary", limiter);
 
 app.use(express.json());
 app.use(cookieParser());
