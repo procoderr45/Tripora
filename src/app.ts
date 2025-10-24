@@ -28,8 +28,8 @@ app.use(cookieParser());
 
 app.use("/auth", authRouter);
 app.use("/profile", isLoggedIn, profileRouter);
-app.use("/plan", planRouter);
-app.use("/itinenary", itinenaryRouter);
+app.use("/plan", isLoggedIn, planRouter);
+app.use("/itinenary", isLoggedIn, itinenaryRouter);
 
 app.use(errorHandler);
 
