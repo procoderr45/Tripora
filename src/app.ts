@@ -16,7 +16,7 @@ const app: Express = express();
 
 app.use(
     cors({
-        origin: "tripora-ai.vercel.app",
+        origin: "https://tripora-ai.vercel.app",
         credentials: true,
     })
 );
