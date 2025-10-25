@@ -11,6 +11,7 @@ import planRouter from "./routes/plan.route.js";
 import itinenaryRouter from "./routes/itinenary.route.js";
 import cors from "cors";
 import limiter from "./utils/rate-limiter/limiter.js";
+import appRouter from "./routes/app.route.js";
 
 const app: Express = express();
 
@@ -25,6 +26,8 @@ app.use("/itinenary", limiter);
 
 app.use(express.json());
 app.use(cookieParser());
+
+app.use("/app", appRouter);
 
 app.use("/auth", authRouter);
 app.use("/profile", isLoggedIn, profileRouter);

@@ -2,6 +2,7 @@ import { AppError } from "../errors/AppError.js";
 import userRepository from "../repositories/user.repository.js";
 import { DbUser, RegisterUserType, User } from "../types/user.type.js";
 import passwordUtils from "../utils/bcrypt/passwordUtils.js";
+import getCookieOptions from "../utils/jwt/getCookieOptions.js";
 
 const registerUserService = async (userData: RegisterUserType): Promise<DbUser> => {
     if (!userData) {
@@ -39,10 +40,7 @@ const loginUserService = async (email: string, password: string): Promise<User> 
 };
 
 const logoutUserService = () => {
-    return {
-        maxAge: 0,
-        expires: new Date(Date.now()),
-    };
+    return getCookieOptions(0);
 };
 
 export default {
